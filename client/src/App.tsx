@@ -1,20 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Header } from './components/Header'
-import { Balance } from './components/Balance'
+import "./App.css";
+import { Header } from "./components/Header";
+import { Balance } from "./components/Balance";
+import { History } from "./components/History";
+import { AddTranscation } from "./components/AddTranscation";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from "./theme";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <ThemeProvider theme={theme} >
       <Header />
       <Balance />
-      
-    </>
-  )
+      <History />
+      <AddTranscation />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
