@@ -3,7 +3,13 @@ import { Box, Typography, Card } from "@mui/material";
 export const History = () => {
   return (
     <Box sx={{ marginBottom: 5 }}>
-      <Box>
+      <Box
+        sx={{
+          textAlign: "start",
+          borderBottom: "solid white 1px",
+          margin: "10px 0",
+        }}
+      >
         <Typography>History</Typography>
       </Box>
       <Box>
