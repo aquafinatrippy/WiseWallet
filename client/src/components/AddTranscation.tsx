@@ -1,12 +1,15 @@
-import { Box, Button, TextField, Typography, Input } from "@mui/material";
-import { useState } from "react";
+import { Box, Button, TextField, Typography } from "@mui/material";
+import { useState, ChangeEvent } from "react";
 
 export const AddTranscation = () => {
   const [text, setText] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
 
-  const amountChange = (event) => {
-    setAmount(event.target.value.replace(/[^0-9]/g, ""));
+  const amountChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    if (/^-?\d*\.?\d*$/.test(inputValue)) {
+      setAmount(inputValue);
+    }
   };
 
   return (
@@ -40,7 +43,7 @@ export const AddTranscation = () => {
           onChange={amountChange}
           inputProps={{
             inputMode: "numeric",
-            pattern: "^[0-9]*$",
+            pattern: /^-?[0-9]*$/,
           }}
           fullWidth
         />

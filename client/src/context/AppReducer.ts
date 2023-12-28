@@ -1,17 +1,17 @@
 // AppReducer.ts
-interface Transaction {
+export interface TransactionType {
   id: number;
   text: string;
   amount: number;
 }
 
 export interface AppState {
-  transactions: Transaction[];
+  transactions: TransactionType[];
 }
 
 type AddTransactionAction = {
   type: "ADD_TRANSACTION";
-  payload: Transaction;
+  payload: TransactionType;
 };
 
 type DeleteTransactionAction = {
